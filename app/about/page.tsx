@@ -15,7 +15,21 @@ export default function AboutPage() {
     <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-10">
       {/* Hero */}
       <div className="max-w-3xl pb-8 border-b border-hairline mb-10">
-        <span className="text-[10px] font-black uppercase tracking-widest text-muted">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+          <img
+            src="/logo.png"
+            alt="Three Points London"
+            className="h-8 sm:h-10 w-auto object-contain max-w-[280px]"
+          />
+          <div className="hidden sm:block border-l border-hairline pl-4">
+            <img
+              src="/tagline.png"
+              alt="One City. Three Clubs. Endless Passion."
+              className="h-4 w-auto object-contain"
+            />
+          </div>
+        </div>
+        <span className="text-[10px] font-black uppercase tracking-widest text-muted block mt-2">
           ABOUT · WHO WE ARE
         </span>
         <h1 className="font-display font-black text-3xl sm:text-5xl text-navy uppercase leading-tight mt-1 mb-4">

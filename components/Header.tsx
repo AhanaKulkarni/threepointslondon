@@ -17,17 +17,21 @@ export default function Header() {
       {/* Brand Masthead */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 border-b border-hairline">
         {/* Official Logo as requested */}
-        <div className="flex items-center gap-3">
-          <Link href="/" className="group inline-flex items-center">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <Link href="/" className="group inline-flex items-center" title="Three Points London - Home">
             <img
               src="/logo.png"
               alt="Three Points London"
-              className="h-6 sm:h-8 md:h-9 w-auto max-w-[190px] sm:max-w-none object-contain hover:opacity-95 transition-opacity"
+              className="h-5 xs:h-6 sm:h-8 md:h-9 w-auto max-w-[180px] xs:max-w-[210px] sm:max-w-none object-contain hover:opacity-95 transition-opacity"
             />
           </Link>
-          <span className="hidden xl:inline text-xs font-semibold text-muted tracking-wide pl-4 border-l border-hairline">
-            One city. Three clubs. Endless passion.
-          </span>
+          <div className="hidden xl:flex items-center pl-4 border-l border-hairline">
+            <img
+              src="/tagline.png"
+              alt="One City. Three Clubs. Endless Passion."
+              className="h-3.5 w-auto object-contain"
+            />
+          </div>
         </div>
 
         {/* Global Live Desk stats / quick badge on desktop */}
@@ -432,6 +436,15 @@ export default function Header() {
             >
               Contact & Advertising (£500 Guest Posts)
             </Link>
+          </div>
+
+          {/* Official Tagline Badge in Drawer */}
+          <div className="pt-3 pb-1 border-t border-hairline flex items-center justify-center">
+            <img
+              src="/tagline.png"
+              alt="One City. Three Clubs. Endless Passion."
+              className="h-3.5 w-auto object-contain opacity-90"
+            />
           </div>
         </div>
       )}

@@ -6,24 +6,32 @@ export default function Footer() {
     <footer className="bg-[#1D2B45] text-white pt-12 pb-16 border-t border-gray-800">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         {/* Logo and Brand row */}
-        <div className="pb-8 mb-8 border-b border-gray-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <div className="bg-white px-3 py-1.5 rounded-xs inline-block">
+        <div className="pb-8 mb-8 border-b border-gray-700 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <Link
+              href="/"
+              className="bg-white px-3.5 py-2 rounded-xs inline-flex items-center shadow-xs hover:opacity-95 transition-opacity max-w-fit"
+              title="Three Points London"
+            >
               <img
                 src="/logo.png"
                 alt="Three Points London"
-                className="h-6 w-auto object-contain"
+                className="h-6 sm:h-7 w-auto object-contain"
+              />
+            </Link>
+            <div className="bg-white px-3.5 py-2 rounded-xs inline-flex items-center shadow-xs max-w-fit">
+              <img
+                src="/tagline.png"
+                alt="One City. Three Clubs. Endless Passion."
+                className="h-3.5 sm:h-4 w-auto object-contain"
               />
             </div>
-            <span className="text-xs font-semibold text-gray-400 border-l border-gray-700 pl-4 hidden sm:inline">
-              One city. Three clubs. Endless passion.
-            </span>
           </div>
-          <div className="text-xs text-gray-400 font-bold flex items-center gap-3">
+          <div className="text-xs text-gray-400 font-bold flex items-center gap-4">
             <span>Follow the desks:</span>
-            <span className="text-white hover:text-indigo-400 cursor-pointer">X</span>
-            <span className="text-white hover:text-indigo-400 cursor-pointer">Instagram</span>
-            <span className="text-white hover:text-indigo-400 cursor-pointer">YouTube</span>
+            <span className="text-white hover:text-indigo-400 cursor-pointer transition-colors">X</span>
+            <span className="text-white hover:text-indigo-400 cursor-pointer transition-colors">Instagram</span>
+            <span className="text-white hover:text-indigo-400 cursor-pointer transition-colors">YouTube</span>
           </div>
         </div>
 
