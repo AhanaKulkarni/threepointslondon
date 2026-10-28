@@ -74,7 +74,9 @@
       "isExclusive": true,
       "isLead": true,
       "imageUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1600&q=85",
-      "imageCaption": "Mikel Arteta reacts on the touchline during a high-stakes Premier League encounter. (IMAGO / Action Plus)"
+      "imageCaption": "Mikel Arteta reacts on the touchline during a high-stakes Premier League encounter. (IMAGO / Action Plus)",
+      "sourceUrl": "https://www.bbc.com/sport/football/teams/arsenal",
+      "sourceName": "BBC Sport Football"
     },
     {
       "id": "art-02",
@@ -93,7 +95,9 @@
       "isExclusive": false,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "Stamford Bridge under floodlights ahead of a pivotal European evening."
+      "imageCaption": "Stamford Bridge under floodlights ahead of a pivotal European evening.",
+      "sourceUrl": "https://www.football.london/chelsea-fc/transfer-news/",
+      "sourceName": "Football.London"
     },
     {
       "id": "art-03",
@@ -112,7 +116,9 @@
       "isExclusive": false,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "Tottenham Hotspur Stadium illuminated for a north London derby."
+      "imageCaption": "Tottenham Hotspur Stadium illuminated for a north London derby.",
+      "sourceUrl": "https://www.skysports.com/tottenham-hotspur",
+      "sourceName": "Sky Sports Premier League"
     },
     {
       "id": "art-04",
@@ -131,7 +137,9 @@
       "isExclusive": true,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "The academy development grounds at Cobham."
+      "imageCaption": "The academy development grounds at Cobham.",
+      "sourceUrl": "https://www.theguardian.com/football/chelsea",
+      "sourceName": "The Guardian Sport"
     },
     {
       "id": "art-05",
@@ -150,7 +158,9 @@
       "isExclusive": true,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "South American talent spotting has become Arsenal's primary recruitment advantage."
+      "imageCaption": "South American talent spotting has become Arsenal's primary recruitment advantage.",
+      "sourceUrl": "https://www.arsenal.com/news",
+      "sourceName": "Arsenal Official"
     },
     {
       "id": "art-06",
@@ -169,7 +179,9 @@
       "isExclusive": true,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "The tactical briefing suites at Hotspur Way, Enfield."
+      "imageCaption": "The tactical briefing suites at Hotspur Way, Enfield.",
+      "sourceUrl": "https://www.tottenhamhotspur.com/news/",
+      "sourceName": "Spurs Official"
     },
     {
       "id": "art-07",
@@ -188,7 +200,9 @@
       "isExclusive": true,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "The business of London football: inside the capital's three most powerful boardrooms."
+      "imageCaption": "The business of London football: inside the capital's three most powerful boardrooms.",
+      "sourceUrl": "https://www.skysports.com/football/news",
+      "sourceName": "Sky Sports London"
     },
     {
       "id": "art-08",
@@ -207,7 +221,9 @@
       "isExclusive": false,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "Zone 14 congestion: Arsenal's defensive pivot under scrutiny."
+      "imageCaption": "Zone 14 congestion: Arsenal's defensive pivot under scrutiny.",
+      "sourceUrl": "https://www.bbc.com/sport/football/teams/arsenal",
+      "sourceName": "BBC Sport Tactics"
     },
     {
       "id": "art-09",
@@ -226,7 +242,9 @@
       "isExclusive": false,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "Chelsea's tactical shape in possession under Xabi Alonso."
+      "imageCaption": "Chelsea's tactical shape in possession under Xabi Alonso.",
+      "sourceUrl": "https://www.football.london/chelsea-fc/",
+      "sourceName": "Football.London Chelsea"
     },
     {
       "id": "art-10",
@@ -245,7 +263,9 @@
       "isExclusive": false,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "Hale End graduates stepping onto the senior training pitch at London Colney."
+      "imageCaption": "Hale End graduates stepping onto the senior training pitch at London Colney.",
+      "sourceUrl": "https://www.arsenal.com/academy/news",
+      "sourceName": "Arsenal Academy Desk"
     },
     {
       "id": "art-11",
@@ -264,7 +284,9 @@
       "isExclusive": false,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "William Saliba during pre-match preparations."
+      "imageCaption": "William Saliba during pre-match preparations.",
+      "sourceUrl": "https://www.arsenal.com/news/team-news",
+      "sourceName": "Arsenal Media"
     },
     {
       "id": "art-12",
@@ -283,7 +305,9 @@
       "isExclusive": false,
       "isLead": false,
       "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=85",
-      "imageCaption": "Tottenham Hotspur Stadium under night floodlights."
+      "imageCaption": "Tottenham Hotspur Stadium under night floodlights.",
+      "sourceUrl": "https://www.tottenhamhotspur.com/news/first-team/",
+      "sourceName": "Tottenham Hotspur Desk"
     }
   ],
   "ticker": [
@@ -291,7 +315,7 @@
       "id": "t-1",
       "text": "Chelsea open talks over January move for Porto midfielder",
       "club": "chelsea",
-      "link": "/article/chelsea-wage-structure-question-before-january",
+      "link": "https://www.football.london/chelsea-fc/transfer-news/",
       "active": true,
       "timestamp": "2026-10-06T11:00:00Z"
     },
@@ -299,7 +323,7 @@
       "id": "t-2",
       "text": "De Zerbi: \"We are three signings from a title race\"",
       "club": "tottenham",
-      "link": "/article/de-zerbi-spurs-rebuild-in-five-numbers",
+      "link": "https://www.skysports.com/tottenham-hotspur",
       "active": true,
       "timestamp": "2026-10-06T10:30:00Z"
     },
@@ -307,7 +331,7 @@
       "id": "t-3",
       "text": "Four Hale End teenagers added to first-team training group",
       "club": "arsenal",
-      "link": "/article/four-hale-end-teenagers-train-with-first-team",
+      "link": "https://www.bbc.com/sport/football/teams/arsenal",
       "active": true,
       "timestamp": "2026-10-06T10:00:00Z"
     },
@@ -315,7 +339,7 @@
       "id": "t-4",
       "text": "Cobham graduate handed first senior start at Sunderland",
       "club": "chelsea",
-      "link": "/chelsea",
+      "link": "https://www.football.london/chelsea-fc/transfer-news/",
       "active": true,
       "timestamp": "2026-10-06T09:30:00Z"
     },
@@ -323,7 +347,7 @@
       "id": "t-5",
       "text": "Spurs confirm Carabao Cup quarter-final date at the Lane",
       "club": "tottenham",
-      "link": "/article/spurs-confirm-carabao-cup-quarter-final-date",
+      "link": "https://www.skysports.com/tottenham-hotspur",
       "active": true,
       "timestamp": "2026-10-06T09:00:00Z"
     },
@@ -331,7 +355,7 @@
       "id": "t-6",
       "text": "Arteta confirms Saliba fit to face Hull after Villa Park knock",
       "club": "arsenal",
-      "link": "/article/arteta-confirms-saliba-fit-for-hull",
+      "link": "https://www.bbc.com/sport/football/teams/arsenal",
       "active": true,
       "timestamp": "2026-10-06T08:30:00Z"
     }

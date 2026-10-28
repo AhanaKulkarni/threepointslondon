@@ -17,12 +17,12 @@ export default function Header() {
       {/* Brand Masthead */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 border-b border-hairline">
         {/* Official Logo as requested */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <Link href="/" className="group inline-flex items-center">
             <img
               src="/logo.png"
               alt="Three Points London"
-              className="h-7 sm:h-9 md:h-10 w-auto object-contain hover:opacity-95 transition-opacity"
+              className="h-6 sm:h-8 md:h-9 w-auto max-w-[190px] sm:max-w-none object-contain hover:opacity-95 transition-opacity"
             />
           </Link>
           <span className="hidden xl:inline text-xs font-semibold text-muted tracking-wide pl-4 border-l border-hairline">

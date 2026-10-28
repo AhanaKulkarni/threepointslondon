@@ -197,6 +197,29 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </figure>
           )}
 
+          {/* Prominent Original Source Banner */}
+          {article.sourceUrl && (
+            <div className="bg-surface border-l-4 border-l-indigo border-hairline border p-4 my-5 rounded-r-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-wider text-muted block mb-0.5">
+                  ORIGINAL REPORTING
+                </span>
+                <span className="text-xs sm:text-sm font-bold text-navy">
+                  Published by {article.sourceName || "Original Publisher"}
+                </span>
+              </div>
+              <a
+                href={article.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-indigo hover:bg-navy text-white text-xs font-bold px-4 py-2 rounded-xs inline-flex items-center gap-1.5 transition-colors self-start sm:self-auto shrink-0 shadow-xs"
+              >
+                <span>Read Full Original Article</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          )}
+
           {/* Key Facts Box (if Arsenal piece) */}
           {article.club === "arsenal" && (
             <div className="bg-surface border-l-4 border-l-[#E8192C] border-hairline border p-4 my-6 rounded-r-xs">
@@ -366,6 +389,29 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               — Vayam Lahoti, Founder & Editor
             </cite>
           </div>
+
+          {/* Full Piece Redirect CTA */}
+          {article.sourceUrl && (
+            <div className="my-8 p-6 bg-navy text-white rounded-xs shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-wider text-gray-300 block mb-1">
+                  SOURCE REDIRECT
+                </span>
+                <h4 className="font-headline font-bold text-base sm:text-lg text-white">
+                  Continue to the complete coverage on {article.sourceName || "Original Publisher"}
+                </h4>
+              </div>
+              <a
+                href={article.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-ember hover:bg-red-700 text-white font-extrabold text-xs px-5 py-3 rounded-xs flex items-center gap-2 transition-colors shrink-0 shadow-md"
+              >
+                <span>Read Original Piece</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          )}
 
           {/* End of article Ad Unit */}
           <AdSlot id="infeed_728x90" label="AD — 728×90 END OF ARTICLE · HIGHEST-COMPLETION POSITION" />

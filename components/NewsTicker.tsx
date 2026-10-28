@@ -27,24 +27,28 @@ export default function NewsTicker({ items }: NewsTickerProps) {
           <div className="animate-ticker flex items-center whitespace-nowrap gap-6 text-gray-200">
             {activeItems.map((item, idx) => (
               <span key={`ticker-1-${item.id}-${idx}`} className="inline-flex items-center gap-3">
-                <Link
+                <a
                   href={item.link || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white hover:underline transition-colors cursor-pointer"
                 >
-                  {item.text}
-                </Link>
+                  {item.text} ↗
+                </a>
                 <span className="text-gray-500 font-bold">•</span>
               </span>
             ))}
             {/* Duplicate for seamless infinite loop */}
             {activeItems.map((item, idx) => (
               <span key={`ticker-2-${item.id}-${idx}`} className="inline-flex items-center gap-3">
-                <Link
+                <a
                   href={item.link || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white hover:underline transition-colors cursor-pointer"
                 >
-                  {item.text}
-                </Link>
+                  {item.text} ↗
+                </a>
                 <span className="text-gray-500 font-bold">•</span>
               </span>
             ))}
