@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NewsTicker from "@/components/NewsTicker";
 import StickyFloorAd from "@/components/StickyFloorAd";
+import ScrollAnimationProvider from "@/components/ScrollAnimationProvider";
 import { getSiteData } from "@/lib/store";
 
 const archivo = Archivo({
@@ -72,12 +73,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-ink antialiased">
-        <NewsTicker items={ticker} />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <StickyFloorAd />
+      <body className="min-h-screen flex flex-col bg-white text-ink antialiased selection:bg-navy selection:text-white">
+        <ScrollAnimationProvider>
+          <NewsTicker items={ticker} />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <StickyFloorAd />
+        </ScrollAnimationProvider>
       </body>
     </html>
   );

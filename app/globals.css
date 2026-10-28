@@ -16,13 +16,61 @@
   --club-tottenham: #24376B;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--color-ink);
   background-color: #FFFFFF;
   font-family: var(--font-archivo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
-  padding-bottom: 90px; /* Reserve height for sticky floor ad */
+  padding-bottom: 90px;
 }
+
+/* ========================================================
+   SCROLL REVEAL ANIMATIONS (SMOOTH & HARDWARE ACCELERATED)
+   ======================================================== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  will-change: opacity;
+}
+
+.reveal-fade.is-revealed {
+  opacity: 1;
+}
+
+.reveal-card {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-card.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delay classes */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
 
 /* Ticker Marquee CSS-only animation for 0 CLS */
 @keyframes tickerSlide {
@@ -49,6 +97,13 @@ body {
     animation: none;
     overflow-x: auto;
   }
+  .reveal-on-scroll,
+  .reveal-card,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* Editorial typography for long-form */
@@ -67,6 +122,16 @@ body {
   color: #1D2B45;
   margin-top: 2rem;
   margin-bottom: 1rem;
+}
+
+/* Modern Card Glow & Hover Elevate */
+.hover-elevate {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-elevate:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -6px rgba(29, 43, 69, 0.12);
 }
 
 /* Custom scrollbars */

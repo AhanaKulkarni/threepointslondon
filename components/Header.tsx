@@ -13,51 +13,54 @@ export default function Header() {
   const isActive = (path: string) => pathname === path || pathname.startsWith(`${path}/`);
 
   return (
-    <header className="w-full bg-white border-b border-hairline sticky top-0 z-40 shadow-xs">
+    <header className="w-full bg-white border-b border-hairline sticky top-0 z-40 shadow-xs backdrop-blur-md bg-white/95">
       {/* Brand Masthead */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-3 sm:pt-5 sm:pb-4 flex items-center md:items-end justify-between gap-2 border-b border-hairline">
-        <div className="flex items-baseline gap-3">
-          <Link href="/" className="group inline-flex flex-col">
-            <span className="font-display font-extrabold text-xl sm:text-3xl md:text-4xl tracking-tight text-navy uppercase group-hover:text-indigo transition-colors leading-none">
-              Three Points London
-            </span>
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 border-b border-hairline">
+        {/* Official Logo as requested */}
+        <div className="flex items-center gap-4">
+          <Link href="/" className="group inline-flex items-center">
+            <img
+              src="/logo.png"
+              alt="Three Points London"
+              className="h-7 sm:h-9 md:h-10 w-auto object-contain hover:opacity-95 transition-opacity"
+            />
           </Link>
-          <span className="hidden lg:inline text-xs font-semibold text-muted tracking-wide pl-2 border-l border-hairline">
+          <span className="hidden xl:inline text-xs font-semibold text-muted tracking-wide pl-4 border-l border-hairline">
             One city. Three clubs. Endless passion.
           </span>
         </div>
 
         {/* Global Live Desk stats / quick badge on desktop */}
-        <div className="hidden sm:flex items-center gap-4 text-xs font-bold text-muted">
-          <div className="flex items-center gap-1.5">
+        <div className="hidden sm:flex items-center gap-5 text-xs font-bold text-muted">
+          <div className="flex items-center gap-2 bg-[#FDF2F2] text-[#E8192C] px-2.5 py-1 rounded-full border border-red-100">
             <span className="w-2 h-2 rounded-full bg-[#E8192C]"></span>
             <span>Arsenal 1st</span>
           </div>
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2 bg-[#F0F5FA] text-[#1C6BB0] px-2.5 py-1 rounded-full border border-blue-100">
             <span className="w-2 h-2 rounded-full bg-[#1C6BB0]"></span>
             <span>Chelsea 3rd</span>
           </div>
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-2 bg-[#F2F4F8] text-[#24376B] px-2.5 py-1 rounded-full border border-indigo-100">
             <span className="w-2 h-2 rounded-full bg-[#24376B]"></span>
             <span>Spurs 5th</span>
           </div>
           <Link
             href="/admin"
-            className="text-xs bg-surface border border-hairline hover:border-indigo px-2.5 py-1.5 rounded text-navy font-bold transition-all flex items-center gap-1.5"
+            className="text-xs bg-navy text-white hover:bg-indigo px-3 py-1.5 rounded-full font-bold transition-all flex items-center gap-1.5 shadow-xs"
           >
-            <span className="w-4 h-4 rounded-full bg-navy text-white text-[10px] flex items-center justify-center font-bold">
+            <span className="w-4 h-4 rounded-full bg-ember text-white text-[10px] flex items-center justify-center font-black">
               V
             </span>
-            <span>Admin</span>
+            <span>Admin Portal</span>
           </Link>
         </div>
 
-        {/* Mobile quick actions (V profile shortcut + Hamburger) */}
+        {/* Mobile quick actions */}
         <div className="flex md:hidden items-center gap-2">
           <Link
             href="/admin"
-            className="w-9 h-9 rounded-full bg-navy text-white text-xs flex items-center justify-center font-bold hover:bg-indigo transition-colors"
-            title="Vayam Admin Panel"
+            className="w-9 h-9 rounded-full bg-navy text-white text-xs flex items-center justify-center font-bold hover:bg-indigo transition-colors shadow-xs"
+            title="Vayam Admin Portal"
           >
             V
           </Link>
@@ -84,14 +87,14 @@ export default function Header() {
               <Link
                 href="/about"
                 className={`flex items-center gap-1 px-3 py-2 hover:text-indigo transition-colors ${
-                  isActive("/about") || isActive("/editorial-standards") ? "text-indigo" : ""
+                  isActive("/about") || isActive("/editorial-standards") ? "text-indigo font-black" : ""
                 }`}
               >
                 About
                 <ChevronDown className="w-3.5 h-3.5 opacity-60" />
               </Link>
               {openDropdown === "about" && (
-                <div className="absolute top-12 left-0 w-52 bg-white shadow-xl border border-hairline py-2 z-50">
+                <div className="absolute top-12 left-0 w-52 bg-white shadow-xl border border-hairline py-2 z-50 rounded-b-xs">
                   <Link
                     href="/about"
                     className="block px-4 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
@@ -135,7 +138,7 @@ export default function Header() {
               <Link
                 href="/arsenal"
                 className={`flex items-center gap-1.5 px-3 py-2 hover:text-[#E8192C] transition-colors ${
-                  isActive("/arsenal") ? "text-[#E8192C] font-extrabold" : ""
+                  isActive("/arsenal") ? "text-[#E8192C] font-black" : ""
                 }`}
               >
                 <span className="w-2 h-2 rounded-full bg-[#E8192C]"></span>
@@ -143,7 +146,7 @@ export default function Header() {
                 <ChevronDown className="w-3.5 h-3.5 opacity-60" />
               </Link>
               {openDropdown === "arsenal" && (
-                <div className="absolute top-12 left-0 w-56 bg-white shadow-xl border-t-2 border-t-[#E8192C] border-hairline border py-2 z-50">
+                <div className="absolute top-12 left-0 w-56 bg-white shadow-xl border-t-2 border-t-[#E8192C] border-hairline border py-2 z-50 rounded-b-xs">
                   <div className="px-4 py-1 text-[10px] font-extrabold uppercase text-muted tracking-wider">
                     The Arsenal Desk
                   </div>
@@ -190,7 +193,7 @@ export default function Header() {
               <Link
                 href="/chelsea"
                 className={`flex items-center gap-1.5 px-3 py-2 hover:text-[#1C6BB0] transition-colors ${
-                  isActive("/chelsea") ? "text-[#1C6BB0] font-extrabold" : ""
+                  isActive("/chelsea") ? "text-[#1C6BB0] font-black" : ""
                 }`}
               >
                 <span className="w-2 h-2 rounded-full bg-[#1C6BB0]"></span>
@@ -198,7 +201,7 @@ export default function Header() {
                 <ChevronDown className="w-3.5 h-3.5 opacity-60" />
               </Link>
               {openDropdown === "chelsea" && (
-                <div className="absolute top-12 left-0 w-56 bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border-hairline border py-2 z-50">
+                <div className="absolute top-12 left-0 w-56 bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border-hairline border py-2 z-50 rounded-b-xs">
                   <div className="px-4 py-1 text-[10px] font-extrabold uppercase text-muted tracking-wider">
                     The Chelsea Desk
                   </div>
@@ -245,7 +248,7 @@ export default function Header() {
               <Link
                 href="/tottenham"
                 className={`flex items-center gap-1.5 px-3 py-2 hover:text-[#24376B] transition-colors ${
-                  isActive("/tottenham") ? "text-[#24376B] font-extrabold" : ""
+                  isActive("/tottenham") ? "text-[#24376B] font-black" : ""
                 }`}
               >
                 <span className="w-2 h-2 rounded-full bg-[#24376B]"></span>
@@ -253,7 +256,7 @@ export default function Header() {
                 <ChevronDown className="w-3.5 h-3.5 opacity-60" />
               </Link>
               {openDropdown === "tottenham" && (
-                <div className="absolute top-12 left-0 w-56 bg-white shadow-xl border-t-2 border-t-[#24376B] border-hairline border py-2 z-50">
+                <div className="absolute top-12 left-0 w-56 bg-white shadow-xl border-t-2 border-t-[#24376B] border-hairline border py-2 z-50 rounded-b-xs">
                   <div className="px-4 py-1 text-[10px] font-extrabold uppercase text-muted tracking-wider">
                     The Tottenham Desk
                   </div>
@@ -295,11 +298,11 @@ export default function Header() {
             <Link
               href="/community"
               className={`px-3 py-2 hover:text-indigo transition-colors flex items-center gap-1.5 ${
-                isActive("/community") ? "text-indigo font-extrabold" : ""
+                isActive("/community") ? "text-indigo font-black" : ""
               }`}
             >
               <span>Community</span>
-              <span className="text-[10px] bg-ember text-white px-1.5 py-0.2 rounded-full font-bold">
+              <span className="text-[10px] bg-ember text-white px-2 py-0.5 rounded-full font-extrabold animate-pulse">
                 212 LIVE
               </span>
             </Link>
@@ -313,14 +316,14 @@ export default function Header() {
               <Link
                 href="/contact"
                 className={`flex items-center gap-1 px-3 py-2 hover:text-indigo transition-colors ${
-                  isActive("/contact") ? "text-indigo" : ""
+                  isActive("/contact") ? "text-indigo font-black" : ""
                 }`}
               >
                 Contact
                 <ChevronDown className="w-3.5 h-3.5 opacity-60" />
               </Link>
               {openDropdown === "contact" && (
-                <div className="absolute top-12 left-0 w-56 bg-white shadow-xl border border-hairline py-2 z-50">
+                <div className="absolute top-12 left-0 w-56 bg-white shadow-xl border border-hairline py-2 z-50 rounded-b-xs">
                   <Link
                     href="/contact#advertise"
                     className="block px-4 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
@@ -347,15 +350,16 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/article/the-press-is-working-the-rest-defence-is-not"
-              className="text-xs font-bold text-ember border border-ember/40 hover:bg-ember hover:text-white px-3 py-1.5 rounded transition-all"
+              className="text-xs font-bold text-ember border border-ember/40 hover:bg-ember hover:text-white px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 shadow-xs"
             >
-              EXCLUSIVE: Rest-Defence
+              <span className="w-2 h-2 rounded-full bg-ember animate-ping"></span>
+              <span>EXCLUSIVE: Rest-Defence</span>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer (with full 44x44 tap targets) */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-hairline bg-white px-4 py-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
           <Link

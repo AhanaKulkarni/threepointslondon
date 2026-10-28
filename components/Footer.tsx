@@ -5,6 +5,28 @@ export default function Footer() {
   return (
     <footer className="bg-[#1D2B45] text-white pt-12 pb-16 border-t border-gray-800">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+        {/* Logo and Brand row */}
+        <div className="pb-8 mb-8 border-b border-gray-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <div className="bg-white px-3 py-1.5 rounded-xs inline-block">
+              <img
+                src="/logo.png"
+                alt="Three Points London"
+                className="h-6 w-auto object-contain"
+              />
+            </div>
+            <span className="text-xs font-semibold text-gray-400 border-l border-gray-700 pl-4 hidden sm:inline">
+              One city. Three clubs. Endless passion.
+            </span>
+          </div>
+          <div className="text-xs text-gray-400 font-bold flex items-center gap-3">
+            <span>Follow the desks:</span>
+            <span className="text-white hover:text-indigo-400 cursor-pointer">X</span>
+            <span className="text-white hover:text-indigo-400 cursor-pointer">Instagram</span>
+            <span className="text-white hover:text-indigo-400 cursor-pointer">YouTube</span>
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 pb-10 border-b border-gray-700">
           {/* Arsenal */}
           <div>

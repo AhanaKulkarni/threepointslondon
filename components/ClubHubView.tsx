@@ -120,15 +120,15 @@ export default function ClubHubView({
 
       {/* Main Grid: Hero + Stack */}
       {leadStory ? (
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8 border-b border-hairline">
+        <section className="reveal-on-scroll grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8 border-b border-hairline">
           {/* Lead Article */}
-          <div className="lg:col-span-8 group">
+          <div className="lg:col-span-8 group bg-white border border-hairline p-5 rounded-sm shadow-xs hover-elevate transition-all">
             {leadStory.imageUrl && (
-              <Link href={`/article/${leadStory.slug}`} className="block overflow-hidden rounded-xs mb-4">
+              <Link href={`/article/${leadStory.slug}`} className="block overflow-hidden rounded-xs mb-4 aspect-[16/9]">
                 <img
                   src={leadStory.imageUrl}
                   alt={leadStory.title}
-                  className="w-full h-[320px] sm:h-[420px] object-cover group-hover:scale-[1.01] transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </Link>
             )}

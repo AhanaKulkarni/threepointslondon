@@ -17,7 +17,15 @@ interface IngestResult {
 
 // Strictly London Trio Keyword Matchers
 function detectClub(title: string, content: string): Club | null {
+  const titleLower = title.toLowerCase();
   const text = `${title} ${content}`.toLowerCase();
+
+  // Negative filter: Discard general Premier League / outside club stories
+  const outsideClubs = ["man utd", "manchester united", "liverpool", "man city", "newcastle", "everton", "fleetwood", "carrick", "ten hag", "guardiola", "slot"];
+  const isOutsideHeadline = outsideClubs.some((c) => titleLower.includes(c));
+  if (isOutsideHeadline && !titleLower.includes("arsenal") && !titleLower.includes("chelsea") && !titleLower.includes("tottenham") && !titleLower.includes("spurs")) {
+    return null;
+  }
 
   const arsenalKeywords = [
     "arsenal",
@@ -26,42 +34,31 @@ function detectClub(title: string, content: string): Club | null {
     "saliba",
     "saka",
     "odegaard",
-    "emirates",
+    "emirates stadium",
     "hale end",
-    "rice",
-    "havertz",
-    "gabriel",
   ];
   const chelseaKeywords = [
     "chelsea",
-    "blues",
     "stamford bridge",
     "cobham",
-    "palmer",
+    "cole palmer",
     "caicedo",
-    "enzo",
-    "alonso",
-    "porto",
-    "clearlake",
-    "colwill",
+    "xabi alonso",
+    "enzo fernandez",
   ];
   const tottenhamKeywords = [
     "tottenham",
     "spurs",
     "de zerbi",
-    "postecoglou",
-    "son",
+    "hotspur way",
+    "son heung-min",
     "maddison",
     "solanke",
-    "hotspur",
-    "enfield",
-    "porro",
-    "van de ven",
   ];
 
-  const hasArsenal = arsenalKeywords.some((k) => text.includes(k));
-  const hasChelsea = chelseaKeywords.some((k) => text.includes(k));
-  const hasSpurs = tottenhamKeywords.some((k) => text.includes(k));
+  const hasArsenal = arsenalKeywords.some((k) => titleLower.includes(k) || text.includes(k));
+  const hasChelsea = chelseaKeywords.some((k) => titleLower.includes(k) || text.includes(k));
+  const hasSpurs = tottenhamKeywords.some((k) => titleLower.includes(k) || text.includes(k));
 
   if (hasArsenal && hasChelsea && hasSpurs) return "all";
   if (hasArsenal && (hasChelsea || hasSpurs)) return "all";

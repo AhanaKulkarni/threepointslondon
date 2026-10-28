@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Article } from "@/lib/types";
-import { getClubBorderClass, getClubTextClass } from "@/lib/utils";
+import { getClubTextClass } from "@/lib/utils";
+import { TrendingUp, Flame } from "lucide-react";
 
 interface MostReadProps {
   initialArticles: {
@@ -20,24 +21,25 @@ export default function MostRead({ initialArticles }: MostReadProps) {
   const currentList = initialArticles[activeTab] || initialArticles.all;
 
   return (
-    <div className="bg-white border border-hairline p-5 shadow-xs">
+    <div className="bg-white border border-hairline p-6 rounded-sm shadow-xs hover-elevate transition-all">
       {/* Header and Tabs */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-hairline gap-2">
-        <div className="flex items-center gap-2">
-          <span className="font-display font-extrabold text-sm sm:text-base text-navy uppercase tracking-tight">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-hairline gap-3">
+        <div className="flex items-center gap-2.5">
+          <TrendingUp className="w-4 h-4 text-ember" />
+          <span className="font-display font-black text-base text-navy uppercase tracking-tight">
             Most Read
           </span>
-          <span className="text-[10px] font-bold text-muted bg-surface px-1.5 py-0.5 rounded uppercase">
-            Auto-Updated
+          <span className="text-[10px] font-extrabold text-green-700 bg-green-50 border border-green-200 px-2 py-0.5 rounded-full uppercase tracking-wider">
+            Live Algorithmic Tracking
           </span>
         </div>
 
-        <div className="flex items-center gap-1 text-xs font-bold text-muted">
+        <div className="flex items-center gap-1.5 text-xs font-bold text-muted bg-surface p-1 rounded-xs">
           <button
             onClick={() => setActiveTab("all")}
-            className={`px-2 py-1 transition-colors ${
+            className={`px-2.5 py-1 rounded-xs transition-all ${
               activeTab === "all"
-                ? "text-navy border-b-2 border-navy font-extrabold"
+                ? "bg-navy text-white font-extrabold shadow-xs"
                 : "hover:text-ink"
             }`}
           >
@@ -45,30 +47,30 @@ export default function MostRead({ initialArticles }: MostReadProps) {
           </button>
           <button
             onClick={() => setActiveTab("arsenal")}
-            className={`px-2 py-1 transition-colors ${
+            className={`px-2.5 py-1 rounded-xs transition-all ${
               activeTab === "arsenal"
-                ? "text-[#E8192C] border-b-2 border-[#E8192C] font-extrabold"
-                : "hover:text-ink"
+                ? "bg-[#E8192C] text-white font-extrabold shadow-xs"
+                : "hover:text-[#E8192C]"
             }`}
           >
             Arsenal
           </button>
           <button
             onClick={() => setActiveTab("chelsea")}
-            className={`px-2 py-1 transition-colors ${
+            className={`px-2.5 py-1 rounded-xs transition-all ${
               activeTab === "chelsea"
-                ? "text-[#1C6BB0] border-b-2 border-[#1C6BB0] font-extrabold"
-                : "hover:text-ink"
+                ? "bg-[#1C6BB0] text-white font-extrabold shadow-xs"
+                : "hover:text-[#1C6BB0]"
             }`}
           >
             Chelsea
           </button>
           <button
             onClick={() => setActiveTab("tottenham")}
-            className={`px-2 py-1 transition-colors ${
+            className={`px-2.5 py-1 rounded-xs transition-all ${
               activeTab === "tottenham"
-                ? "text-[#24376B] border-b-2 border-[#24376B] font-extrabold"
-                : "hover:text-ink"
+                ? "bg-[#24376B] text-white font-extrabold shadow-xs"
+                : "hover:text-[#24376B]"
             }`}
           >
             Tottenham
@@ -79,20 +81,29 @@ export default function MostRead({ initialArticles }: MostReadProps) {
       {/* 4 Items List */}
       <div className="divide-y divide-hairline mt-2">
         {currentList.slice(0, 4).map((art, idx) => (
-          <div key={art.id} className="py-3 flex items-start gap-4 group">
-            {/* Index Number */}
-            <span className="font-display font-black text-2xl sm:text-3xl text-[#5C6370]/40 group-hover:text-navy transition-colors shrink-0 w-6">
-              {idx + 1}
+          <div key={art.id} className="py-4 flex items-start gap-5 group">
+            {/* Number Rank */}
+            <span className="font-display font-black text-3xl sm:text-4xl text-gray-300 group-hover:text-navy transition-colors shrink-0 w-8 select-none leading-none pt-1">
+              {String(idx + 1).padStart(2, "0")}
             </span>
 
             {/* Article Info */}
             <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 text-[11px] font-extrabold tracking-wider uppercase mb-1">
+              <div className="flex items-center gap-2 text-[10px] font-black tracking-wider uppercase mb-1">
                 <span className={getClubTextClass(art.club)}>
                   {art.club === "all" ? "LONDON DESKS" : art.club}
                 </span>
                 <span className="text-muted/60">•</span>
                 <span className="text-muted">{art.subDesk || art.desk}</span>
+                {art.isExclusive && (
+                  <>
+                    <span className="text-muted/60">•</span>
+                    <span className="text-ember font-black flex items-center gap-0.5">
+                      <Flame className="w-2.5 h-2.5" />
+                      EXCLUSIVE
+                    </span>
+                  </>
+                )}
               </div>
 
               <Link
@@ -102,11 +113,11 @@ export default function MostRead({ initialArticles }: MostReadProps) {
                 {art.title}
               </Link>
 
-              <div className="flex items-center gap-2 mt-1.5 text-xs text-muted">
-                <span>{art.authorName}</span>
+              <div className="flex items-center gap-2 mt-2 text-xs text-muted">
+                <span className="font-semibold text-navy">{art.authorName}</span>
                 <span>•</span>
                 <span>{art.readTime}</span>
-                <span className="text-[10px] text-gray-400">({art.views} reads)</span>
+                <span className="text-[11px] text-gray-400 font-medium">({art.views.toLocaleString()} reads)</span>
               </div>
             </div>
           </div>
