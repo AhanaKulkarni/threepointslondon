@@ -10,11 +10,15 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET() {
-  return NextResponse.json({
-    status: "active",
-    schedule: "Every 15-30 minutes (or on-demand)",
-    targetClubs: ["Arsenal", "Chelsea", "Tottenham Hotspur"],
-    policy: "Instant publish to live homepage",
-  });
+export async function GET(req: NextRequest) {
+  try {
+    const result = await runNewsIngestion();
+    return NextResponse.json({
+      ...result,
+      trigger: "automated-cron",
+      timestamp: new Date().toISOString(),
+    });
+  } catch (err: any) {
+    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
+  }
 }

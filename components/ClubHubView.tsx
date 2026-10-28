@@ -187,8 +187,11 @@ export default function ClubHubView({
 
           {/* Right Rail Stories */}
           <div className="lg:col-span-4 flex flex-col divide-y divide-hairline">
-            {sideStories.map((story) => (
-              <div key={story.id} className="py-3 sm:py-4 first:pt-0 group">
+            {sideStories.map((story, idx) => (
+              <div
+                key={story.id}
+                className={`reveal-card delay-${(idx + 1) * 100} py-3 sm:py-4 first:pt-0 group`}
+              >
                 <div className="text-[9px] sm:text-[10px] font-extrabold text-muted uppercase tracking-wider mb-1">
                   {story.subDesk || story.desk}
                 </div>
@@ -234,7 +237,7 @@ export default function ClubHubView({
 
       {/* MORE FEED STORIES */}
       {feedStories.length > 0 && (
-        <section className="my-8 sm:my-10">
+        <section className="reveal-on-scroll my-8 sm:my-10">
           <div className="pb-3 border-b border-hairline mb-5 sm:mb-6 flex items-center justify-between">
             <h3 className="font-display font-extrabold text-sm sm:text-base uppercase tracking-wider text-navy">
               More {clubTitle}

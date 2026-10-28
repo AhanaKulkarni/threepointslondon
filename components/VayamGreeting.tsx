@@ -2,8 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import { getGreeting } from "@/lib/utils";
+import { LogOut } from "lucide-react";
 
-export default function VayamGreeting() {
+interface VayamGreetingProps {
+  onLogout?: () => void;
+}
+
+export default function VayamGreeting({ onLogout }: VayamGreetingProps) {
   const [greetingInfo, setGreetingInfo] = useState<{ greeting: string; period: string }>({
     greeting: "Welcome, Vayam",
     period: "Day",
@@ -22,7 +27,7 @@ export default function VayamGreeting() {
         </div>
 
         <div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="text-[10px] font-black uppercase tracking-widest bg-white/15 px-2 py-0.5 rounded-xs text-gray-200">
               FOUNDER & EDITOR IN CHIEF
             </span>
@@ -30,6 +35,16 @@ export default function VayamGreeting() {
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
               Super Admin Access
             </span>
+            {onLogout && (
+              <button
+                onClick={onLogout}
+                className="text-[10px] text-gray-300 hover:text-white bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded-xs font-bold transition-all flex items-center gap-1 ml-1"
+                title="Sign out of Admin Portal"
+              >
+                <LogOut className="w-2.5 h-2.5" />
+                Sign Out
+              </button>
+            )}
           </div>
 
           <h1 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight mt-1">

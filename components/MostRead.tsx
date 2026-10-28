@@ -86,7 +86,10 @@ export default function MostRead({ initialArticles }: MostReadProps) {
           const sourceLabel = art.sourceName || "Original Publisher";
 
           return (
-            <div key={art.id} className="py-3.5 sm:py-4 flex items-start gap-3 sm:gap-4 group">
+            <div
+              key={art.id}
+              className={`reveal-card delay-${(idx + 1) * 100} py-3.5 sm:py-4 flex items-start gap-3 sm:gap-4 group`}
+            >
               {/* Number Rank (Mobile-tuned width) */}
               <span className="font-display font-black text-xl sm:text-3xl text-gray-300 group-hover:text-navy transition-colors shrink-0 w-6 sm:w-8 select-none leading-none pt-0.5 sm:pt-1">
                 {String(idx + 1).padStart(2, "0")}

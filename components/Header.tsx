@@ -34,28 +34,29 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Global Live Desk stats / quick badge on desktop */}
-        <div className="hidden sm:flex items-center gap-5 text-xs font-bold text-muted">
-          <div className="flex items-center gap-2 bg-[#FDF2F2] text-[#E8192C] px-2.5 py-1 rounded-full border border-red-100">
-            <span className="w-2 h-2 rounded-full bg-[#E8192C]"></span>
-            <span>Arsenal 1st</span>
-          </div>
-          <div className="flex items-center gap-2 bg-[#F0F5FA] text-[#1C6BB0] px-2.5 py-1 rounded-full border border-blue-100">
-            <span className="w-2 h-2 rounded-full bg-[#1C6BB0]"></span>
-            <span>Chelsea 3rd</span>
-          </div>
-          <div className="flex items-center gap-2 bg-[#F2F4F8] text-[#24376B] px-2.5 py-1 rounded-full border border-indigo-100">
-            <span className="w-2 h-2 rounded-full bg-[#24376B]"></span>
-            <span>Spurs 5th</span>
-          </div>
+        {/* Desktop Masthead Right: Clean & faithful to PDF */}
+        <div className="hidden md:flex items-center gap-4 text-xs font-bold text-muted">
+          <Link
+            href="/search"
+            className="hover:text-navy transition-colors px-2 py-1"
+          >
+            Search
+          </Link>
+          <Link
+            href="/contact"
+            className="hover:text-navy transition-colors px-2 py-1"
+          >
+            Report / Contact
+          </Link>
           <Link
             href="/admin"
             className="text-xs bg-navy text-white hover:bg-indigo px-3 py-1.5 rounded-full font-bold transition-all flex items-center gap-1.5 shadow-xs"
+            title="Editorial Admin Portal"
           >
             <span className="w-4 h-4 rounded-full bg-ember text-white text-[10px] flex items-center justify-center font-black">
               V
             </span>
-            <span>Admin Portal</span>
+            <span>Admin</span>
           </Link>
         </div>
 
@@ -350,16 +351,6 @@ export default function Header() {
               )}
             </div>
           </nav>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="/article/the-press-is-working-the-rest-defence-is-not"
-              className="text-xs font-bold text-ember border border-ember/40 hover:bg-ember hover:text-white px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 shadow-xs"
-            >
-              <span className="w-2 h-2 rounded-full bg-ember animate-ping"></span>
-              <span>EXCLUSIVE: Rest-Defence</span>
-            </Link>
-          </div>
         </div>
       </div>
 

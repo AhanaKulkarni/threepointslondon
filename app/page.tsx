@@ -44,7 +44,7 @@ export default function HomePage() {
       <section className="reveal-on-scroll grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
         {/* Left / Lead Feature Story (7 cols) */}
         {leadArticle && (
-          <div className="lg:col-span-7 bg-white border border-hairline rounded-sm overflow-hidden shadow-xs hover-elevate transition-all group flex flex-col justify-between">
+          <div className="reveal-card delay-100 lg:col-span-7 bg-white border border-hairline rounded-sm overflow-hidden shadow-xs hover-elevate transition-all group flex flex-col justify-between">
             <div>
               {/* Lead Image with Gradient Overlay */}
               {leadArticle.imageUrl && (
@@ -198,7 +198,9 @@ export default function HomePage() {
       </section>
 
       {/* AD / SPONSOR: 970x250 Below Hero */}
-      <AdSlot id="billboard_970x250" label="AD — 970×250 BILLBOARD · BELOW THE LEAD STORY, HEIGHT RESERVED" />
+      <div className="reveal-on-scroll">
+        <AdSlot id="billboard_970x250" label="AD — 970×250 BILLBOARD · BELOW THE LEAD STORY, HEIGHT RESERVED" />
+      </div>
 
       {/* THE THREE DESKS: London Club Hubs */}
       <section className="reveal-on-scroll">

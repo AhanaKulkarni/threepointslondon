@@ -55,32 +55,24 @@ export default function NewsTicker({ items }: NewsTickerProps) {
           </div>
         </div>
 
-        {/* Right Utility: Search & Report & Admin Shortcut */}
-        <div className="flex items-center gap-4 pl-3 border-l border-gray-700 shrink-0 text-gray-400">
+        {/* Right Utility: Search & Report (Strictly as PDF Page 2) */}
+        <div className="flex items-center gap-3 sm:gap-4 pl-3 border-l border-gray-700 shrink-0 text-gray-300 text-[11px] sm:text-xs">
           <Link
             href="/search"
-            className="flex items-center gap-1 hover:text-white transition-colors"
+            className="flex items-center gap-1.5 hover:text-white transition-colors"
             title="Search Three Points London"
           >
-            <Search className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Search</span>
+            <Search className="w-3 h-3 text-gray-400" />
+            <span>Search</span>
           </Link>
+          <span className="text-gray-600">•</span>
           <Link
             href="/contact"
-            className="flex items-center gap-1 hover:text-white transition-colors text-gray-400 hover:text-ember"
+            className="flex items-center gap-1.5 hover:text-white transition-colors hover:text-ember"
             title="Report an issue or correction"
           >
-            <Flag className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Report</span>
-          </Link>
-          <Link
-            href="/admin"
-            className="flex items-center gap-1.5 bg-[#1D2B45] hover:bg-indigo text-white px-2 py-0.5 rounded text-[11px] font-bold transition-colors ml-1"
-          >
-            <span className="w-4 h-4 rounded-full bg-ember flex items-center justify-center text-[10px] font-black">
-              V
-            </span>
-            <span>Vayam</span>
+            <Flag className="w-3 h-3 text-gray-400" />
+            <span>Report</span>
           </Link>
         </div>
       </div>

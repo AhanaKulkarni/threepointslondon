@@ -35,19 +35,19 @@ body {
 }
 
 /* ========================================================
-   SCROLL REVEAL ANIMATIONS (OPTIMIZED FOR MOBILE & DESKTOP)
+   SCROLL REVEAL ANIMATIONS (EDITORIAL GRADE FOR MOBILE & DESKTOP)
    ======================================================== */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 @media (min-width: 640px) {
   .reveal-on-scroll {
-    transform: translateY(24px);
-    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(44px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
@@ -58,7 +58,7 @@ body {
 
 .reveal-fade {
   opacity: 0;
-  transition: opacity 0.6s ease-out;
+  transition: opacity 0.7s ease-out;
   will-change: opacity;
 }
 
@@ -68,8 +68,8 @@ body {
 
 .reveal-card {
   opacity: 0;
-  transform: translateY(14px) scale(0.99);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(28px) scale(0.98);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -78,12 +78,16 @@ body {
   transform: translateY(0) scale(1);
 }
 
-/* Stagger delay classes */
-.delay-100 { transition-delay: 80ms; }
-.delay-200 { transition-delay: 160ms; }
-.delay-300 { transition-delay: 240ms; }
-.delay-400 { transition-delay: 320ms; }
-.delay-500 { transition-delay: 400ms; }
+/* Stagger delay classes for smooth cascades */
+.delay-75  { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-350 { transition-delay: 350ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
 
 /* Ticker Marquee CSS-only animation for 0 CLS */
 @keyframes tickerSlide {

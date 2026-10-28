@@ -18,7 +18,13 @@ import {
   CheckCircle,
   RefreshCw,
   Eye,
+  EyeOff,
   Sliders,
+  Lock,
+  Key,
+  LogOut,
+  ShieldCheck,
+  AlertCircle,
 } from "lucide-react";
 
 export default function AdminPage() {
@@ -34,6 +40,15 @@ export default function AdminPage() {
   const [standings, setStandings] = useState<any>({});
   const [loading, setLoading] = useState(true);
   const [feedbackMsg, setFeedbackMsg] = useState<string | null>(null);
+
+  // Authentication State
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [checkingAuth, setCheckingAuth] = useState(true);
+  const [loginUsername, setLoginUsername] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const [loggingIn, setLoggingIn] = useState(false);
 
   // Ingestion state
   const [ingesting, setIngesting] = useState(false);
@@ -87,8 +102,55 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    fetchData();
+    if (typeof window !== "undefined") {
+      const auth = localStorage.getItem("tpl_admin_auth");
+      if (auth === "true") {
+        setIsAuthenticated(true);
+        fetchData();
+      } else {
+        setLoading(false);
+      }
+      setCheckingAuth(false);
+    }
   }, []);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoggingIn(true);
+    setLoginError(null);
+    try {
+      const res = await fetch("/api/admin/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: loginUsername.trim(),
+          password: loginPassword.trim(),
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        localStorage.setItem("tpl_admin_auth", "true");
+        localStorage.setItem("tpl_admin_token", data.token);
+        setIsAuthenticated(true);
+        fetchData();
+      } else {
+        setLoginError(data.message || "Invalid username or password. Please try again.");
+      }
+    } catch (err) {
+      setLoginError("Network connection error. Please verify server status.");
+    } finally {
+      setLoggingIn(false);
+    }
+  };
+
+  const handleLogout = () => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("tpl_admin_auth");
+      localStorage.removeItem("tpl_admin_token");
+      setIsAuthenticated(false);
+      setLoginPassword("");
+    }
+  };
 
   const notify = (msg: string) => {
     setFeedbackMsg(msg);
@@ -263,10 +325,133 @@ export default function AdminPage() {
     }
   };
 
+  // 1. Loading & Authentication Gate
+  if (checkingAuth) {
+    return (
+      <div className="min-h-[70vh] flex items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-10 h-10 border-4 border-navy border-t-ember rounded-full animate-spin"></div>
+          <span className="text-xs font-bold text-muted uppercase tracking-wider">
+            Verifying Editor Credentials...
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  // 2. Login Screen for Vayam
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-[80vh] flex items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md bg-white border border-hairline rounded-sm shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-300">
+          {/* Top Brand Banner */}
+          <div className="bg-navy p-6 text-white text-center border-b-4 border-b-ember">
+            <div className="w-14 h-14 rounded-full bg-ember text-white mx-auto flex items-center justify-center font-display font-black text-2xl shadow-md ring-4 ring-white/10 mb-3">
+              V
+            </div>
+            <div className="flex items-center justify-center gap-2 mb-1">
+              <span className="text-[10px] font-black uppercase tracking-widest bg-white/15 px-2.5 py-0.5 rounded-xs text-gray-200">
+                EDITOR PORTAL
+              </span>
+              <span className="text-[10px] text-green-400 font-bold flex items-center gap-1">
+                <ShieldCheck className="w-3 h-3 text-green-400" />
+                RESTRICTED
+              </span>
+            </div>
+            <h1 className="font-display font-black text-2xl text-white tracking-tight">
+              Sign In to Three Points London
+            </h1>
+            <p className="text-xs text-gray-300 mt-1">
+              Founder & Editorial Control Center
+            </p>
+          </div>
+
+          {/* Login Form */}
+          <form onSubmit={handleLogin} className="p-6 sm:p-8 space-y-5">
+            {loginError && (
+              <div className="p-3 bg-red-50 border border-red-200 rounded text-xs text-[#E8192C] font-semibold flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0" />
+                <span>{loginError}</span>
+              </div>
+            )}
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-navy mb-1.5">
+                Username
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  value={loginUsername}
+                  onChange={(e) => setLoginUsername(e.target.value)}
+                  placeholder="e.g. VayamLahoti"
+                  required
+                  autoFocus
+                  className="w-full bg-surface border border-hairline rounded px-3 py-2.5 text-sm text-ink font-semibold focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-navy mb-1.5">
+                Password
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                  placeholder="••••••••••••"
+                  required
+                  className="w-full bg-surface border border-hairline rounded px-3 py-2.5 text-sm text-ink font-semibold focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted hover:text-navy cursor-pointer"
+                  tabIndex={-1}
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loggingIn}
+              className="w-full bg-navy hover:bg-indigo text-white font-display font-extrabold text-sm uppercase tracking-wider py-3 rounded transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
+            >
+              {loggingIn ? (
+                <>
+                  <RefreshCw className="w-4 h-4 animate-spin" />
+                  <span>Verifying Credentials...</span>
+                </>
+              ) : (
+                <>
+                  <Lock className="w-4 h-4 text-ember" />
+                  <span>Authenticate & Enter Portal</span>
+                </>
+              )}
+            </button>
+
+            <div className="pt-3 border-t border-hairline text-center">
+              <Link
+                href="/"
+                className="text-xs font-semibold text-muted hover:text-navy transition-colors"
+              >
+                ← Return to Public Website
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-8">
-      {/* Dynamic Vayam Greeting & V avatar */}
-      <VayamGreeting />
+      {/* Dynamic Vayam Greeting & V avatar with logout */}
+      <VayamGreeting onLogout={handleLogout} />
 
       {/* Notification Toast */}
       {feedbackMsg && (
