@@ -14,22 +14,22 @@ export default function Header() {
 
   return (
     <header className="w-full bg-white border-b border-hairline sticky top-0 z-40 shadow-xs backdrop-blur-md bg-white/95">
-      {/* Brand Masthead */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-4 border-b border-hairline">
-        {/* Official Logo as requested */}
-        <div className="flex items-center gap-3 sm:gap-4">
-          <Link href="/" className="group inline-flex items-center" title="Three Points London - Home">
+      {/* Brand Masthead - Full screen with Logo to Extreme Left */}
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 flex items-center justify-between gap-4 border-b border-hairline">
+        {/* Official Logo to extreme left as requested */}
+        <div className="flex items-center gap-3 sm:gap-5">
+          <Link href="/" className="group inline-flex items-center shrink-0" title="Three Points London - Home">
             <img
               src="/logo.png"
               alt="Three Points London"
-              className="h-5 xs:h-6 sm:h-8 md:h-9 w-auto max-w-[180px] xs:max-w-[210px] sm:max-w-none object-contain hover:opacity-95 transition-opacity"
+              className="h-5 xs:h-6 sm:h-8 md:h-9 lg:h-10 w-auto max-w-[180px] xs:max-w-[210px] sm:max-w-none object-contain hover:opacity-95 transition-opacity"
             />
           </Link>
-          <div className="hidden xl:flex items-center pl-4 border-l border-hairline">
+          <div className="hidden lg:flex items-center pl-4 sm:pl-5 border-l border-hairline">
             <img
               src="/tagline.png"
               alt="One City. Three Clubs. Endless Passion."
-              className="h-3.5 w-auto object-contain"
+              className="h-3.5 sm:h-4 w-auto object-contain"
             />
           </div>
         </div>
@@ -79,8 +79,8 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main Navigation Bar (Desktop) */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+      {/* Main Navigation Bar (Desktop) - Full screen aligned to extreme left */}
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10">
         <div className="hidden md:flex items-center justify-between h-12">
           <nav className="flex items-center space-x-1 lg:space-x-2 h-full font-bold text-sm text-ink">
             {/* 1. About */}

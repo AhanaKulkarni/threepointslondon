@@ -14,7 +14,7 @@ export default function NewsTicker({ items }: NewsTickerProps) {
 
   return (
     <div className="bg-[#111317] text-white border-b border-gray-800 text-xs font-semibold select-none z-30">
-      <div className="max-w-[1280px] mx-auto flex items-center h-9 px-4 sm:px-6">
+      <div className="w-full flex items-center h-9 px-4 sm:px-6 md:px-8 lg:px-10">
         {/* LATEST Chip */}
         <div className="flex items-center gap-2 pr-3 border-r border-gray-700 shrink-0">
           <span className="bg-ember text-white font-extrabold uppercase px-1.5 py-0.5 text-[10px] tracking-wider rounded-sm">

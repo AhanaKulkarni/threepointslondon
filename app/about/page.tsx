@@ -12,7 +12,7 @@ export default function AboutPage() {
   const siteData = getSiteData();
 
   return (
-    <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-10">
+    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-10">
       {/* Hero */}
       <div className="max-w-3xl pb-8 border-b border-hairline mb-10">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">

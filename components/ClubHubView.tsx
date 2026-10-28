@@ -39,7 +39,7 @@ export default function ClubHubView({
   const feedStories = filteredArticles.slice(4);
 
   return (
-    <div className="max-w-[1280px] mx-auto px-3 sm:px-6 py-4 sm:py-8">
+    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-8">
       {/* Club Desk Header */}
       <div className={`pb-4 sm:pb-6 border-b-2 ${borderColor} mb-5 sm:mb-6 flex flex-col md:flex-row md:items-end justify-between gap-3`}>
         <div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-[#1D2B45] text-white pt-12 pb-16 border-t border-gray-800">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10">
         {/* Logo and Brand row */}
         <div className="pb-8 mb-8 border-b border-gray-700 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">

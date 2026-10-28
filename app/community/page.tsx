@@ -86,7 +86,7 @@ export default function CommunityPage() {
   });
 
   return (
-    <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-8">
+    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-8">
       {/* Header */}
       <div className="pb-6 border-b border-hairline mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
