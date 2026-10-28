@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-navy: #1D2B45;
+  --color-indigo: #2B4BC4;
+  --color-ember: #CE3426;
+  --color-surface: #F6F7F9;
+  --color-ink: #111317;
+  --color-muted: #5C6370;
+  --color-hairline: #E3E5EA;
+
+  --club-arsenal: #E8192C;
+  --club-chelsea: #1C6BB0;
+  --club-tottenham: #24376B;
+}
+
+body {
+  color: var(--color-ink);
+  background-color: #FFFFFF;
+  font-family: var(--font-archivo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 90px; /* Reserve height for sticky floor ad */
+}
+
+/* Ticker Marquee CSS-only animation for 0 CLS */
+@keyframes tickerSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: tickerSlide 45s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation: none;
+    overflow-x: auto;
+  }
+}
+
+/* Editorial typography for long-form */
+.editorial-prose p {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 1.1875rem; /* 19px */
+  line-height: 1.75;
+  color: #111317;
+  margin-bottom: 1.5rem;
+}
+
+.editorial-prose h2,
+.editorial-prose h3 {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 800;
+  color: #1D2B45;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F7F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
